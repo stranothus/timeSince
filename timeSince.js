@@ -13,7 +13,7 @@ or use the accompanying dateToObj.js file
 */
 
 function timeSince(timePosted) {
-    var dateNow = new Date().toUTCString();
+    var dateNow = new Date();
     
     var timeNow = {
         v : dateNow,
