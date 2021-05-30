@@ -1,27 +1,28 @@
 /*
 Input the timePosted parameter as
 {
-  year : [year],
-  month : [month],
-  day : [day],
-  hour : [military time hour of the day],
-  min : [minute of the hour],
-  sec : [second of the minute]
+    year : [year],
+    month : [month],
+    day : [day],
+    hour : [military time hour of the day],
+    min : [minute of the hour],
+    sec : [second of the minute]
 }
+
+or use the accompanying dateToObj.js file
 */
 
 function timeSince(timePosted) {
     var dateNow = new Date().toUTCString();
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
+    
     var timeNow = {
         v : dateNow,
-        year : dateNow.slice(12, 16),
-        month : months.indexOf(dateNow.slice(8, 11)) < 10 ? "0" + (months.indexOf(dateNow.slice(8, 11)) + 1) : String(months.indexOf(dateNow.slice(8, 11)) + 1),
-        day : dateNow.slice(5, 7),
-        hour : dateNow.slice(17, 19),
-        min : dateNow.slice(20, 22),
-        sec : dateNow.slice(23, 25)
+        year : dateNow.getFullYear(),
+        month : dateNow.getMonth() + 1,
+        day : dateNow.getDate(),
+        hour : dateNow.getHours() + 1,
+        min : dateNow.getMinutes() + 1,
+        sec : dateNow.getSeconds() + 1
     };
 
 
