@@ -82,5 +82,5 @@ function timeSince(timePosted) {
         }
     }
 
-    return timeSincePosted;
+    return timeSince;
 }
