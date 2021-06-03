@@ -15,6 +15,10 @@ or use the accompanying dateToObj.js file
 function timeSince(timePosted) {
     var dateNow = new Date();
     
+    if(typeof timePosted["hour"] === "string") {
+        timePosted["hour"] = timePosted["hour"].search(/\D/i) !== -1 ? timePosted["hour"].search(/pm/i) !== -1 ? Number(timePosted["hour"].replace(/[\D]/gi, "")) + 12 : timePosted["hour"].replace(/[\D]/gi, "") : Number(timePosted["hour"]);
+    }
+
     var timeNow = {
         v : dateNow,
         year : dateNow.getFullYear(),
